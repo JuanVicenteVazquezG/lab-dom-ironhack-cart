@@ -11,17 +11,10 @@ function creatingProduct(eventProduct) {
   let priceProduct = parseFloat(
     newProduct.getElementsByClassName("price")[0].childNodes[1].value
   );
-  if (productName === "") {
-    alert("Please introduce valid name for this product");
-  } else if (priceProduct === 0) {
-    alert("Please introduce valid price");
-  } else {
-    let elementToDelete = eventProduct.target;
-    console.log (elementToDelete)
-    // createNewItem(productName, priceProduct, 0);
-    // deleteItem(elementToDelete);
-  }
+  createNewItem(productName, priceProduct, 0);
+  deleteItem(eventProduct);
 }
+
 function designingProduct() {
   let divProduct = document.getElementsByClassName("products")[0];
   let divWrapper = document.createElement("div");
@@ -40,10 +33,8 @@ function designingProduct() {
   let buttonEscape = divWrapper
     .getElementsByClassName("done-botton")[0]
     .childNodes[3].addEventListener("click", deleteItem);
-
   divProduct.appendChild(divWrapper);
 }
-function getPriceByProduct(itemNode) {}
 
 function updatePriceByProduct(inputEventKeypressed) {
   let qty = parseFloat(inputEventKeypressed.target.value);
@@ -89,17 +80,9 @@ function showPrice() {
   thePrice.style.display = "block";
 }
 
-function createQuantityInput() {}
-
 function createDeleteButton(deleteButtonObject) {
   deleteButtonObject.addEventListener("click", deleteItem);
 }
-
-function createQuantityNode() {}
-
-function createItemNode(dataType, itemData) {}
-
-function createNewItemRow(itemName, itemUnitPrice) {}
 
 function createNewItem(description, price, qty) {
   let divProduct = document.getElementsByClassName("products")[0];
